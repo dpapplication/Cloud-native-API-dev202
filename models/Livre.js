@@ -20,6 +20,9 @@ const livreSchema=new mongoose.Schema({
         type:mongoose.Schema.Types.ObjectId,
         ref:"auteur",
         required:true
+    },
+    prix:{
+        type:Number
     }
 },{
     timestamps:true

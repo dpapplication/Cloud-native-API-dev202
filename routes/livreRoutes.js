@@ -1,4 +1,10 @@
 const router =require('express').Router()
 const livreController=require('../controllers/livreController')
+const valideId=require('../middlewares/isValideObjectId')
 router.post('/',livreController.createLivre)
+router.get('/',livreController.getAllBooks)
+router.get('/:id',valideId,livreController.getBooksById)
+router.delete('/:id',valideId,livreController.deleteBooksById)
+router.put('/:id',valideId,livreController.updateBooksById)
+router.get('/prix/:prix',livreController.getBooksByPrice)
 module.exports=router
