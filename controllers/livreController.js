@@ -108,3 +108,18 @@ module.exports.getBooksByRange=async(req,res)=>{
         res.status(500).json({message:error.message})
     }
 }
+
+/**
+ * @description recuperer les informations des livres
+ * @router livre/ids/ids
+ * @method GET
+ */
+module.exports.getBooksByIds=async(req,res)=>{
+    try {
+        const {ids}=req.body
+        const books= await Livre.find({_id:{$in:ids}}).populate('auteur')
+        res.status(200).json(books)
+    } catch (error) {
+        res.status(500).json({message:error.message})
+    }
+}

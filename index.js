@@ -6,5 +6,6 @@ app.use(express.json())
 connection()
 app.use('/auteur',require('./routes/auteurRoutes'))
 app.use('/livre',require('./routes/livreRoutes'))
+app.use('/user',require('./routes/userRoutes'))
 
 app.listen(3000,console.log('serveur is running '))
